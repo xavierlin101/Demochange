@@ -2,22 +2,19 @@ body {
     background-color: white;
 
 }
+
 #container {
     width: 80%;
     margin: 24px auto;
     text-align: center;
 }
 
-
-
-
-
-.title{
+.title {
     width: 75%;
     background-color: cadetblue;
-    color:white;
+    color: white;
     padding: 20px;
-    font-size:  32px;
+    font-size: 32px;
     display: inline-block;
 }
 
@@ -86,5 +83,5 @@ input[type="button"] {
     #container {
         width: 100%;
     }
-    
+
 }
