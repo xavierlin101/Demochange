@@ -10,8 +10,8 @@ body {
 }
 
 .title {
-    width: 75%;
-    background-color: cadetblue;
+    width: 65%;
+    background-color: rgb(48, 170, 174);
     color: white;
     padding: 20px;
     font-size: 32px;
@@ -25,13 +25,13 @@ body {
 .text-1 {
     font-size: 24px;
     font-weight: bold;
-    color: rebeccapurple;
+    color: violet;
     font-style: italic;
 }
 
 #form {
     background-color: cornflowerblue;
-    width: 80%;
+    width: 70%;
     margin: 24px auto;
     color: white;
     padding: 24px 0;
@@ -57,25 +57,25 @@ input[type="button"] {
     background-color: aquamarine;
     width: 100px;
     height: 40px;
-    border-radius: 6px;
+    border-radius: 12px;
     border: none;
 }
 
 #result {
     font-size: 88px;
     font-family: 標楷體;
-    color: yellowgreen;
+    color: yellow;
 }
 
 #result-text {
     margin-top: 24px;
-    background-color: black;
+    background-color: rgb(36, 36, 144);
     display: inline-block;
-    font-size: 24px;
-    font-family: 新細明體;
+    font-size: 16px;
+    font-family: 細明體;
     color: rgb(255, 255, 238);
     padding: 6px 24px;
-    border-radius: 8px;
+    border-radius: 2px;
 }
 
 
