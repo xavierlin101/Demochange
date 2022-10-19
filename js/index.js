@@ -5,10 +5,22 @@ const phoneE1 = document.querySelector("#phone-number");
 const analyticsE1 = document.querySelector("#analytics");
 const resultEl = document.querySelector("#result");
 const resultTextEl = document.querySelector("#result-text");
+const timeEl = document.querySelector("#time");
+
+const resultComment = ['吉', '凶', '吉帶凶', '凶帶吉'];
 
 console.log(phoneE1, analyticsE1, resultEl, resultTextEl)
 
-phoneE1.value = "0922073288"
+// phoneE1.value = "0922073288"
+function getTime() {
+    let date = new Date();
+    timeEl.innerText = `${date.getFullYear()}-${date.getMonth() + 1}\
+    -${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+
+    setTimeout(getTime, 1000);
+
+}
+
 function analytics() {
     let phoneNumber = phoneE1.value;
     if (phoneNumber == "") {
@@ -28,10 +40,38 @@ function analytics() {
         return;
     }
 
+
     console.log(phoneNumber.length);
     let code = analyticsPhoneNumber(phoneNumber);
 
     let result = ResultText[code - 1];
+
+    flashResult(result);
+}
+
+// 全域變數
+let flashCount = 0;
+
+function flashResult(result) {
+    // 顯示亂數結果 
+    let comment = resultComment[getRandInt(0, resultComment.length - 1)];
+    resultEl.innerText = comment;
+    // 三元運算子
+    resultEl.style.color = (resultEl.innerText == "吉" ||
+        resultEl.innerText == "吉帶凶") ? "yellow" : "black";
+    // 製作閃爍功能
+    if (flashCount++ < 120) {
+        setTimeout(
+            function () {
+                flashResult(result);
+            }
+            , getRandInt(5, 15));
+        return;
+    }
+
+    flashCount = 0;
+
+    //最後結果
     console.log(result);
     resultEl.innerText = result[2];
     resultTextEl.innerText = result[1];
@@ -42,6 +82,12 @@ function analytics() {
         resultEl.style.color = "black";
     }
 }
+
+function getRandInt(start, end) {
+    return Math.floor(Math.random() * (end - start + 1)) + start;
+}
+
+
 
 // 0968168168 取後四碼 最大長度-4
 function analyticsPhoneNumber(phoneNumber) {
@@ -55,9 +101,9 @@ function analyticsPhoneNumber(phoneNumber) {
     let code = parseInt((fourNumber / 80 - parseInt(fourNumber / 80)) * 80);
     console.log(code);
 
-    if (code < 1) {
-        code = 1;
-    }
+    // if (code < 1) {
+    //     code = 1;
+    // }
 
     return code;
 
