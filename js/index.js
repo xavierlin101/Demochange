@@ -7,17 +7,18 @@ const timeEl = document.querySelector("#time");
 
 const resultComment = ['吉', '凶', '吉帶凶', '凶帶吉'];
 
-console.log(phoneE1, analyticsE1, resultEl, resultTextEl);
+const resultComment = ['吉', '凶', '吉帶凶', '凶帶吉'];
 
 // phoneE1.value = "0922073288"
-
 function getTime() {
     let date = new Date();
     timeEl.innerText = `${date.getFullYear()}-${date.getMonth() + 1}\
     -${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
 
     setTimeout(getTime, 1000);
+
 }
+
 function analytics() {
     let phoneNumber = phoneE1.value;
     if (phoneNumber == "") {
@@ -36,6 +37,7 @@ function analytics() {
         alert("手機號碼格式不正確!");
         return;
     }
+
 
     console.log(phoneNumber.length);
     let code = analyticsPhoneNumber(phoneNumber);
@@ -79,6 +81,11 @@ function flashResult(result) {
 function getRandInt(start, end) {
     return Math.floor(Math.random() * (end - start + 1)) + start;
 }
+
+function getRandInt(start, end) {
+    return Math.floor(Math.random() * (end - start + 1)) + start;
+}
+
 
 
 // 0968168168 取後四碼 最大長度-4
